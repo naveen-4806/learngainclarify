@@ -54,39 +54,59 @@ span.psw {
   padding-top: 16px;
 }
 
-
-  span.psw {
-     display: block;
-     float: none;
-  }
-  
-
+span.psw {
+  display: block;
+  float: none;
+}
 </style>
 </head>
 <body>
 
 <h2>Welcome to LGC</h2>
 
-<form action="nav" method="post">
+<form onsubmit="storeData(); return false;">
   <div class="imgcontainer">
     <img src="Screenshot 2025-05-09 134417.png" alt="Avatar" class="avatar">
   </div>
 
   <div class="container">
     <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username">
+    <input type="text" id="username" placeholder="Enter Username" required>
 
     <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password">
-        
-   
+    <input type="password" id="password" placeholder="Enter Password" required>
   </div>
 
- 
+  <div class="container">
+    <button type="submit">Login</button>
+  </div>
 </form>
-<a href="main.html"> <button type="submit">Login</button></a>
 
+<script>
+function storeData() {
+  const username = document.getElementById("username").value;
+  const password = document.getElementById("password").value;
 
+  // Save to LocalStorage
+  localStorage.setItem("username", username);
+  localStorage.setItem("password", password); // ⚠ Not secure — for demo purposes only
+
+  // Redirect after storing data
+  window.location.href = "main.html";
+}
+</script>
+      
+      <script type="text/javascript">
+          var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+                (function(){
+                  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+                   s1.async=true;
+                    s1.src='https://embed.tawk.to/682b40878ec535190f11edbd/1irkf85bg';
+                      s1.charset='UTF-8';
+                          s1.setAttribute('crossorigin','*');
+                            s0.parentNode.insertBefore(s1,s0);
+                        })();
+      </script>
 
 </body>
 </html>
